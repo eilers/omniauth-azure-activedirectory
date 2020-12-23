@@ -81,3 +81,11 @@ bundle exec thing start --port 9292 --ssl --ssl-disable-verify
 ```
 
 You may now proceed to https://localhost:9292 to view the application. You may get a warning about the self-signed certificate. This is nothing to worry about, as in production you will not be using self-signed certs.
+
+# Some notes to get this working:
+1. Register the app to your azure account
+2. Under Authentication: Add a platform configuration for web and add the following redirect url: https://localhost:9292/auth/azureactivedirectory/callback
+3. Certificate and Secrets: Add a client secret and save the value into the environment.rb as `CLIENT_SECRET`
+4. Open Manifest and enable `oauth2AllowIdTokenImplicitFlow` and `oauth2AllowImplicitFlow`
+
+
